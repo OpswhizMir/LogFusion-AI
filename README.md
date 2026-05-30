@@ -125,6 +125,3 @@ git push origin main
 
 Submitted to the **Enterprise Agent Track** for the *Pirates of the Coral-bean* Hackathon. Built to showcase the power of localized data federation using Coral v3.
 
-```
-
-```
