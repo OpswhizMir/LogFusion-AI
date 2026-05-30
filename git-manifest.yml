@@ -1,0 +1,25 @@
+name: git_history
+version: "0.1.0"
+dsl_version: 3
+backend: file
+description: "Mock git deployment history"
+
+tables:
+  - name: deployments
+    description: "Deployment commits from JSONL"
+    format: jsonl
+    source:
+      # Pointing to the root directory where you created the file
+      location: "file:///tmp/deployments.jsonl"
+      glob: "deployments.jsonl"
+    columns:
+      - name: commit_id
+        type: Utf8
+      - name: repo
+        type: Utf8
+      - name: author
+        type: Utf8
+      - name: committed_at
+        type: Utf8
+      - name: message
+        type: Utf8
