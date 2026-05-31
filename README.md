@@ -1,6 +1,6 @@
 
 # LogFusion-AI 🚀
-
+**[Watch the 3-Minute Demo Video on YouTube]https://youtu.be/CvEfdJm-oJA**
 An intelligent, autonomous incident management agent that eliminates the manual effort of digging through infrastructure logs and piecing together operational context during production outages. 
 
 LogFusion-AI bridges the gap between infrastructure state and deployment history. By running a single local command, it correlates real-time OpenSearch container logs with Git deployment histories in milliseconds, providing an instant root-cause analysis and an actionable, step-by-step remediation runbook.
