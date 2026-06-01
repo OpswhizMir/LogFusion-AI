@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.11.0
+    container_name: hackathon-opensearch
+    environment:
+      - discovery.type=single-node
+      - DISABLE_SECURITY_PLUGIN=true # Disables HTTPS/passwords for easy hackathon testing
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Keeps memory usage low
+    ports:
+      - "9200:9200"
+    networks:
+      - hackathon-net
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.11.0
+    container_name: hackathon-dashboards
+    ports:
+      - "5601:5601"
+    environment:
+      - DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
+      - OPENSEARCH_HOSTS=["http://opensearch:9200"]
+    networks:
+      - hackathon-net
+
+  coral:
+    image: ubuntu:latest 
+    container_name: hackathon-coral
+    tty: true 
+    networks:
+      - hackathon-net
+    volumes:
+      - ./:/workspace 
+
+networks:
+  hackathon-net:
+    driver: bridge
